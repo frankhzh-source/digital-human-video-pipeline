@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <title>v2 包装层 · 测试片A7</title>
+    <script src="../assets/gsap.min.js"></script>
+    <style>
+      html, body {
+        margin: 0; padding: 0;
+        width: 1920px; height: 1080px;
+        overflow: hidden;
+        background: transparent;
+      }
+      @font-face { font-family: "Microsoft YaHei"; src: local("Microsoft YaHei"), local("MicrosoftYaHei"), local("微软雅黑"); }
+      .stage {
+        position: relative; width: 1920px; height: 1080px;
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        overflow: hidden;
+      }
+      /* ---------- 顶部标题条 ---------- */
+      .topbar {
+        position: absolute; top: 0; left: 0; width: 1920px; height: 84px;
+        background: linear-gradient(180deg, rgba(6,16,38,0.92) 0%, rgba(6,16,38,0.55) 78%, rgba(6,16,38,0) 100%);
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 64px; box-sizing: border-box;
+        border-bottom: 1px solid rgba(233,190,106,0.35);
+      }
+      .topbar .tt { font-size: 30px; font-weight: bold; color: #FFFFFF; letter-spacing: 2px; }
+      .topbar .tt em { font-style: normal; color: #E9BE6A; }
+      .topbar .brand { font-size: 17px; color: #A8C2E8; letter-spacing: 1px; }
+      /* ---------- 图表面板 ---------- */
+      .chart-panel {
+        position: absolute; left: 1150px; top: 170px; width: 710px; height: 600px;
+        background: linear-gradient(160deg, rgba(9,24,54,0.92) 0%, rgba(20,52,100,0.86) 100%);
+        border: 1px solid rgba(96,214,196,0.35);
+        border-left: 6px solid #60D6C4;
+        border-radius: 18px;
+        box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+        padding: 34px 44px; box-sizing: border-box;
+      }
+      .chart-panel .kicker { font-size: 15px; letter-spacing: 5px; color: #60D6C4; font-weight: bold; }
+      .chart-panel h2 { margin: 10px 0 6px; font-size: 38px; color: #FFFFFF; letter-spacing: 2px; }
+      .chart-panel .sub { font-size: 18px; color: #A8C2E8; margin-bottom: 8px; }
+      .chart-panel svg { display: block; }
+      .chart-panel .note { margin-top: 10px; font-size: 17px; color: #D8E5F6; }
+      .chart-panel .note em { font-style: normal; color: #E9BE6A; font-weight: bold; }
+      .yr { font-size: 16px; fill: #A8C2E8; font-family: "Microsoft YaHei"; }
+      /* ---------- 关键词卡 ---------- */
+      .kw {
+        position: absolute; left: 56px; width: 490px; height: 96px;
+        background: linear-gradient(135deg, rgba(9,24,54,0.94) 0%, rgba(20,52,100,0.88) 100%);
+        border: 1px solid rgba(168,194,232,0.35);
+        border-left: 8px solid #60D6C4;
+        border-radius: 14px;
+        display: flex; align-items: center;
+        padding: 0 34px; box-sizing: border-box;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      }
+      .kw .idx { font-size: 20px; color: #E9BE6A; font-weight: bold; width: 58px; }
+      .kw .word { font-size: 40px; font-weight: bold; color: #FFFFFF; letter-spacing: 5px; }
+      .kw.c1 { top: 656px; }
+      .kw.c2 { top: 768px; }
+      .kw.c3 { top: 880px; border-left-color: #E9BE6A; border-color: rgba(233,190,106,0.75); }
+      .kw.c3 .word { color: #E9BE6A; }
+      /* ---------- 结论面板 ---------- */
+      .conclusion {
+        position: absolute; left: 1210px; top: 660px; width: 650px; height: 250px;
+        background: linear-gradient(150deg, rgba(9,24,54,0.95) 0%, rgba(20,52,100,0.90) 100%);
+        border: 1px solid rgba(233,190,106,0.6);
+        border-radius: 20px;
+        box-shadow: 0 20px 70px rgba(0,0,0,0.5);
+        padding: 30px 40px; box-sizing: border-box;
+      }
+      .conclusion .kicker { font-size: 14px; letter-spacing: 6px; color: #E9BE6A; font-weight: bold; }
+      .conclusion .main { margin-top: 10px; font-size: 46px; font-weight: bold; color: #FFFFFF; letter-spacing: 3px; line-height: 1.25; }
+      .conclusion .main em { font-style: normal; color: #E9BE6A; }
+      .conclusion .con-line { width: 200px; height: 4px; background: #E9BE6A; margin: 12px 0 10px; transform-origin: left; border-radius: 2px; }
+      .conclusion .con-sub { font-size: 17px; color: #A8C2E8; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+    <div class="stage" data-composition-id="v2" data-width="1920" data-height="1080" data-start="0" data-duration="15.62" data-fps="25">
+
+      <!-- 顶部标题条：常驻 -->
+      <div class="topbar" data-start="0.15" data-duration="15.45">
+        <div class="tt">你的名字，<em>AI 看得见</em>吗？</div>
+        <div class="brand">海风说GEO ｜ AI搜索信源建设</div>
+      </div>
+
+      <!-- 可视化图表：4.5s 滑入，8.4s 滑出（对齐「当越来越多的人开始用AI问问题」） -->
+      <div class="chart-panel" data-start="4.5" data-duration="3.95">
+        <div class="kicker">ATTENTION SHIFT</div>
+        <h2>提问的人，正在搬家</h2>
+        <div class="sub">从「搜索框翻十个链接」到「问 AI 要一个答案」</div>
+        <svg width="622" height="266" viewBox="0 0 772 330">
+          <line x1="30" y1="70"  x2="742" y2="70"  stroke="rgba(168,194,232,0.18)" stroke-width="1"/>
+          <line x1="30" y1="150" x2="742" y2="150" stroke="rgba(168,194,232,0.18)" stroke-width="1"/>
+          <line x1="30" y1="230" x2="742" y2="230" stroke="rgba(168,194,232,0.18)" stroke-width="1"/>
+          <path id="area" d="M30,252 C180,246 300,234 420,188 C540,142 640,96 720,58 L720,272 L30,272 Z" fill="#60D6C4" opacity="0"/>
+          <path id="curve" d="M30,252 C180,246 300,234 420,188 C540,142 640,96 720,58"
+                fill="none" stroke="#60D6C4" stroke-width="6" stroke-linecap="round"
+                stroke-dasharray="1400" stroke-dashoffset="1400"/>
+          <circle id="ring" cx="720" cy="58" r="10" fill="none" stroke="#E9BE6A" stroke-width="3" opacity="0"/>
+          <circle id="endDot" cx="720" cy="58" r="11" fill="#E9BE6A" opacity="0"/>
+          <text class="yr" x="16"  y="308">2023</text>
+          <text class="yr" x="248" y="308">2024</text>
+          <text class="yr" x="480" y="308">2025</text>
+          <text class="yr" x="712" y="308">2026</text>
+        </svg>
+        <div class="note">入口在变，<em>名字也要跟着搬</em>（示意曲线）</div>
+      </div>
+
+      <!-- 三张关键词卡：逐词弹入，常驻到片尾 -->
+      <div class="kw c1" data-start="8.45" data-duration="7.15">
+        <div class="idx">01</div><div class="word">你的产品</div>
+      </div>
+      <div class="kw c2" data-start="10.10" data-duration="5.50">
+        <div class="idx">02</div><div class="word">你的服务</div>
+      </div>
+      <div class="kw c3" data-start="11.90" data-duration="3.70">
+        <div class="idx">03</div><div class="word">你的名字</div>
+      </div>
+
+      <!-- 结论面板：对齐「会不会出现在那个答案里」 -->
+      <div class="conclusion" data-start="13.25" data-duration="2.37">
+        <div class="kicker">THE ANSWER</div>
+        <div class="main">被看见，<em>才存在</em>。</div>
+        <div class="con-line"></div>
+        <div class="con-sub">AI 时代的名字管理，从让 AI 记住你开始</div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var tl = gsap.timeline({ paused: true });
+
+        // 顶部标题条 0.15s 落下
+        tl.fromTo(".topbar", { y: -70, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.15);
+
+        // 图表面板 4.55s 右侧滑入 → 曲线描画 → 面积浮现 → 年份 → 端点脉冲 → 8.05s 退场
+        tl.fromTo(".chart-panel", { x: 240, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 4.55)
+          .to("#curve", { strokeDashoffset: 0, duration: 1.6, ease: "power1.inOut" }, 4.95)
+          .to("#area", { opacity: 0.28, duration: 0.8 }, 5.7)
+          .fromTo(".yr", { opacity: 0, y: 10 },
+            { opacity: 1, y: 0, duration: 0.4, stagger: 0.22 }, 5.3)
+          .fromTo("#endDot", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" },
+            { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 6.55)
+          .fromTo("#ring", { opacity: 0.85, attr: { r: 12 } },
+            { opacity: 0, attr: { r: 36 }, duration: 0.8, repeat: 2, ease: "power1.out" }, 6.7)
+          .fromTo(".chart-panel .note", { opacity: 0 },
+            { opacity: 1, duration: 0.5 }, 6.9)
+          .to(".chart-panel", { x: 180, opacity: 0, duration: 0.35, ease: "power2.in" }, 8.05);
+
+        // 三张关键词卡：8.5 / 10.12 / 11.92 依次弹入（对齐口播词）
+        tl.fromTo(".kw.c1", { x: -280, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 8.50)
+          .fromTo(".kw.c2", { x: -280, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 10.12)
+          .fromTo(".kw.c3", { x: -280, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 11.92)
+          .fromTo(".kw.c3", { boxShadow: "0 12px 40px rgba(0,0,0,0.4)" },
+            { boxShadow: "0 0 44px rgba(233,190,106,0.65)", duration: 0.5 }, 12.25);
+
+        // 结论面板 13.3s 浮现
+        tl.fromTo(".conclusion", { scale: 0.92, y: 34, opacity: 0 },
+            { scale: 1, y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 13.30)
+          .fromTo(".conclusion .con-line", { scaleX: 0 },
+            { scaleX: 1, duration: 0.5, ease: "power2.out" }, 13.75)
+          .fromTo(".conclusion .con-sub", { opacity: 0, y: 14 },
+            { opacity: 1, y: 0, duration: 0.5 }, 14.05);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["main-video"] = tl;
+      })();
+    </script>
+  </body>
+</html>
